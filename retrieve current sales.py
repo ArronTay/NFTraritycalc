@@ -1,7 +1,6 @@
 import requests
 import pandas as pd
 from datetime import datetime
-from retrieveRarity import rarityTools
 
 def current_sales():
     DH_forsale = []
@@ -26,11 +25,6 @@ if __name__ == '__main__':
     now = datetime.now()
     print("now =", now)
     dt_string = now.strftime("%d_%m_%Y_%H_%M")
-# checks to see if the rarity index exists or if one needs to be created
-    rarity = input('does a rarity index exist for this Project?')
-    if rarity != 'yes' or 'y' or 'Y' or 'Yes':
-        rarityTools('DH_rarity1.xlsx', "https://rarity.tools/darkhorizon/view/")
-
 # function for getting the current sales or obtains an old one for testing
     df = current_sales()
     # df = pd.read_excel('DH_prices15_10_2021_18_31.xlsx')
